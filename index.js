@@ -1,11 +1,16 @@
 require("dotenv").config();
 const express = require('express')
+const cors = require('cors')
 const bodyParser = require("body-parser");
 const sgMail = require('@sendgrid/mail');
 const fs = require('fs');
 const ejs = require('ejs');
 const app = express()
 const port = process.env.PORT
+
+// Enable CORS for all routes
+app.use(cors());
+
 app.use(bodyParser.json());
 
 app.post('/api/contact-us', (req, res) => {
